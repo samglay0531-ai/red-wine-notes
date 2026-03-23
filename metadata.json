@@ -1,0 +1,5 @@
+{
+  "name": "Red Wine Notes",
+  "description": "A personal wine tasting journal with iOS-style aesthetics to track wines, regions, and tasting profiles.",
+  "requestFramePermissions": []
+}
