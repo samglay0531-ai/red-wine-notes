@@ -21,8 +21,8 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating, readOnly = f
         >
           <Star
             size={size}
-            fill={star <= rating ? '#facc15' : '#e5e7eb'} // yellow-400 vs gray-200
-            className={star <= rating ? 'text-yellow-400' : 'text-gray-200'}
+            fill={star <= rating ? '#facc15' : '#E8DDD3'} // yellow-400 vs warm beige
+            className={star <= rating ? 'text-yellow-400' : 'text-[#E8DDD3]'}
             strokeWidth={0} 
           />
         </button>
