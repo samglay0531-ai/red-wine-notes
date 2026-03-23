@@ -120,7 +120,7 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
 
       if (results.length === 0) {
          return (
-          <li className="px-3 py-3 text-gray-500 italic text-sm">
+          <li className="px-3 py-3 text-[#6B6B6B] italic text-sm">
             無符合選項 (將使用您輸入的文字)
           </li>
         );
@@ -129,10 +129,10 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
       return results.map(opt => (
         <li 
           key={opt.value}
-          className="px-3 py-3 bg-white hover:bg-red-50 cursor-pointer text-gray-900 border-b border-gray-50 last:border-none flex items-center"
+          className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] last:border-none flex items-center"
           onMouseDown={(e) => { e.preventDefault(); handleOptionSelect(opt); }}
         >
-          <Search size={14} className="mr-2 text-gray-400" />
+          <Search size={14} className="mr-2 text-[#6B6B6B]" />
           {opt.label}
         </li>
       ));
@@ -143,7 +143,7 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
       return (
         <>
           <li 
-            className="px-3 py-2 bg-gray-50 text-red-800 font-bold text-sm flex items-center cursor-pointer sticky top-0 z-10 border-b border-gray-200"
+            className="px-3 py-2 bg-[#F5EDE4] text-[#722F37] font-bold text-sm flex items-center cursor-pointer sticky top-0 z-10 border-b border-[#E8DDD3]"
             onMouseDown={(e) => { e.preventDefault(); handleBackClick(e); }}
           >
             <ChevronLeft size={16} className="mr-1" />
@@ -152,7 +152,7 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
           {selectedCategory.children.map(child => (
             <li 
               key={child.value}
-              className="px-3 py-3 bg-white hover:bg-red-50 cursor-pointer text-gray-900 border-b border-gray-50 last:border-none pl-6"
+              className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] last:border-none pl-6"
               onMouseDown={(e) => { e.preventDefault(); handleOptionSelect(child); }}
             >
               {child.label}
@@ -166,11 +166,11 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
     return hierarchy.map(cat => (
       <li 
         key={cat.value}
-        className="px-3 py-3 bg-white hover:bg-gray-50 cursor-pointer text-gray-900 border-b border-gray-50 last:border-none flex justify-between items-center font-medium"
+        className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] last:border-none flex justify-between items-center font-medium"
         onMouseDown={(e) => { e.preventDefault(); handleCategoryClick(cat, e); }}
       >
         <span>{cat.label}</span>
-        <ChevronRight size={16} className="text-gray-400" />
+        <ChevronRight size={16} className="text-[#6B6B6B]" />
       </li>
     ));
   };
@@ -182,7 +182,7 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
           ref={inputRef}
           type="text"
           autoComplete="off"
-          className="w-full rounded-lg p-3 pr-10 border border-gray-200 focus:ring-2 focus:ring-red-500 outline-none transition-all appearance-none bg-white text-gray-900 placeholder-gray-400"
+          className="w-full rounded-lg p-3 pr-10 border border-[#E8DDD3] focus:ring-2 focus:ring-[#722F37] outline-none transition-all appearance-none bg-white text-[#1A1A1A] placeholder-[#6B6B6B]"
           placeholder={placeholder}
           value={inputValue}
           onChange={handleInputChange}
@@ -191,11 +191,11 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
         />
          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
           {inputValue ? (
-            <button type="button" onClick={clearInput} className="text-gray-400 hover:text-gray-600 p-1">
+            <button type="button" onClick={clearInput} className="text-[#6B6B6B] hover:text-[#1A1A1A] p-1">
               <X size={16} />
             </button>
           ) : (
-            <div className="pointer-events-none text-gray-400">
+            <div className="pointer-events-none text-[#6B6B6B]">
                <ChevronDown size={16} />
             </div>
           )}
@@ -203,7 +203,7 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
       </div>
 
       {isOpen && (
-        <ul className="absolute z-[100] w-full mt-1 max-h-60 overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-xl py-1 text-sm touch-pan-y">
+        <ul className="absolute z-[100] w-full mt-1 max-h-60 overflow-y-auto bg-white border border-[#E8DDD3] rounded-lg shadow-xl py-1 text-sm touch-pan-y">
           {renderContent()}
         </ul>
       )}

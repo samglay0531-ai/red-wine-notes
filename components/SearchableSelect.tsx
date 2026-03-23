@@ -90,7 +90,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
           ref={inputRef}
           type="text"
           autoComplete="off" 
-          className="w-full rounded-lg p-3 pr-10 border border-gray-200 focus:ring-2 focus:ring-red-500 outline-none transition-all appearance-none bg-white text-gray-900 placeholder-gray-400"
+          className="w-full rounded-lg p-3 pr-10 border border-[#E8DDD3] focus:ring-2 focus:ring-[#722F37] outline-none transition-all appearance-none bg-white text-[#1A1A1A] placeholder-[#6B6B6B]"
           placeholder={placeholder}
           value={inputValue}
           onChange={handleInputChange}
@@ -103,13 +103,13 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
             <button 
               type="button" 
               onClick={clearInput} 
-              className="text-gray-400 hover:text-gray-600 p-1"
+              className="text-[#6B6B6B] hover:text-[#1A1A1A] p-1"
             >
               <X size={16} />
             </button>
           )}
           {!inputValue && (
-            <div className="pointer-events-none text-gray-400">
+            <div className="pointer-events-none text-[#6B6B6B]">
                <ChevronDown size={16} />
             </div>
           )}
@@ -118,12 +118,12 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
 
       {/* Dropdown List */}
       {isOpen && (
-        <ul className="absolute z-[100] w-full mt-1 max-h-60 overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-xl py-1 text-sm touch-pan-y">
+        <ul className="absolute z-[100] w-full mt-1 max-h-60 overflow-y-auto bg-white border border-[#E8DDD3] rounded-lg shadow-xl py-1 text-sm touch-pan-y">
           {filteredOptions.length > 0 ? (
             filteredOptions.map((option) => (
               <li
                 key={option.value}
-                className="px-3 py-3 bg-white hover:bg-red-50 cursor-pointer text-gray-900 border-b border-gray-50 last:border-none flex items-center transition-colors duration-150"
+                className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] last:border-none flex items-center transition-colors duration-150"
                 onMouseDown={(e) => {
                     e.preventDefault(); // 防止 input blur
                     handleSelectOption(option);
@@ -133,7 +133,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
               </li>
             ))
           ) : (
-            <li className="px-3 py-3 bg-white text-gray-500 italic">
+            <li className="px-3 py-3 bg-white text-[#6B6B6B] italic">
               無符合選項 (將使用目前輸入值)
             </li>
           )}
