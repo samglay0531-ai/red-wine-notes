@@ -42,16 +42,16 @@ const App: React.FC = () => {
     <div className="min-h-screen pb-[90px] pt-[60px]">
       
       {/* 1. Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-20 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 h-[60px] flex items-center justify-center">
-        <button 
+      <header className="fixed top-0 left-0 right-0 z-20 bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E8DDD3] h-[60px] flex items-center justify-center">
+        <button
           onClick={() => setIsModalOpen(true)}
           className="w-full h-full px-4 group flex items-center justify-center"
         >
-          <div className="flex items-center justify-center space-x-2 text-red-800 group-active:opacity-70 transition-opacity">
-            <div className="bg-red-100 p-1.5 rounded-full">
+          <div className="flex items-center justify-center space-x-2 text-[#722F37] group-active:opacity-70 transition-opacity">
+            <div className="bg-[#F5EDE4] p-1.5 rounded-full">
               <Plus size={20} />
             </div>
-            <span className="font-bold text-lg">新增一則紅酒筆記</span>
+            <span className="font-bold text-lg font-['Noto_Serif_TC']">新增一則紅酒筆記</span>
           </div>
         </button>
       </header>
@@ -63,8 +63,8 @@ const App: React.FC = () => {
         {activeTab === 'notes' && (
           <div className="animate-fade-in">
             <div className="flex justify-between items-end mb-4 px-1">
-              <h1 className="text-2xl font-bold text-gray-900">我的筆記</h1>
-              <span className="text-sm text-gray-500">{notes.length} 則筆記</span>
+              <h1 className="text-2xl font-bold text-[#1A1A1A] font-['Noto_Serif_TC']">我的筆記</h1>
+              <span className="text-sm text-[#6B6B6B]">{notes.length} 則筆記</span>
             </div>
             
             <div className="space-y-4">
@@ -84,18 +84,18 @@ const App: React.FC = () => {
 
         {/* Tab: Map (Placeholder) */}
         {activeTab === 'map' && (
-          <div className="flex flex-col items-center justify-center text-gray-400 h-[60vh] animate-fade-in">
+          <div className="flex flex-col items-center justify-center text-[#6B6B6B] h-[60vh] animate-fade-in">
              <MapIcon size={80} className="mb-4 opacity-30" strokeWidth={1} />
-             <h2 className="text-xl font-semibold text-gray-600">地圖功能</h2>
+             <h2 className="text-xl font-semibold text-[#6B6B6B] font-['Noto_Serif_TC']">地圖功能</h2>
              <p className="text-sm mt-2">即將推出，敬請期待</p>
           </div>
         )}
 
         {/* Tab: Variety (Placeholder) */}
         {activeTab === 'variety' && (
-          <div className="flex flex-col items-center justify-center text-gray-400 h-[60vh] animate-fade-in">
+          <div className="flex flex-col items-center justify-center text-[#6B6B6B] h-[60vh] animate-fade-in">
              <Grape size={80} className="mb-4 opacity-30" strokeWidth={1} />
-             <h2 className="text-xl font-semibold text-gray-600">品種分類</h2>
+             <h2 className="text-xl font-semibold text-[#6B6B6B] font-['Noto_Serif_TC']">品種分類</h2>
              <p className="text-sm mt-2">即將推出，敬請期待</p>
           </div>
         )}
@@ -103,10 +103,10 @@ const App: React.FC = () => {
       </main>
 
       {/* 3. Bottom Tab Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur shadow-[0_-1px_3px_rgba(0,0,0,0.05)] h-[84px] pb-[20px] flex justify-around items-center border-t border-gray-200">
+      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur shadow-[0_-1px_3px_rgba(0,0,0,0.05)] h-[84px] pb-[20px] flex justify-around items-center border-t border-[#E8DDD3]">
         <button 
           onClick={() => setActiveTab('notes')}
-          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'notes' ? 'text-red-800' : 'text-gray-400 hover:text-gray-600'}`}
+          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'notes' ? 'text-[#722F37]' : 'text-[#6B6B6B] hover:text-[#1A1A1A]'}`}
         >
           <div className={`mb-1 ${activeTab === 'notes' ? '-translate-y-0.5' : ''}`}>
             <NotebookText size={24} strokeWidth={activeTab === 'notes' ? 2.5 : 2} />
@@ -116,7 +116,7 @@ const App: React.FC = () => {
 
         <button 
           onClick={() => setActiveTab('map')}
-          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'map' ? 'text-red-800' : 'text-gray-400 hover:text-gray-600'}`}
+          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'map' ? 'text-[#722F37]' : 'text-[#6B6B6B] hover:text-[#1A1A1A]'}`}
         >
           <div className={`mb-1 ${activeTab === 'map' ? '-translate-y-0.5' : ''}`}>
             <MapIcon size={24} strokeWidth={activeTab === 'map' ? 2.5 : 2} />
@@ -126,7 +126,7 @@ const App: React.FC = () => {
 
         <button 
           onClick={() => setActiveTab('variety')}
-          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'variety' ? 'text-red-800' : 'text-gray-400 hover:text-gray-600'}`}
+          className={`flex flex-col items-center justify-center w-full transition-all duration-200 ${activeTab === 'variety' ? 'text-[#722F37]' : 'text-[#6B6B6B] hover:text-[#1A1A1A]'}`}
         >
            <div className={`mb-1 ${activeTab === 'variety' ? '-translate-y-0.5' : ''}`}>
             <Grape size={24} strokeWidth={activeTab === 'variety' ? 2.5 : 2} />
