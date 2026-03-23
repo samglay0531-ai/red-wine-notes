@@ -20,7 +20,7 @@ const App: React.FC = () => {
       variety: 'Cabernet Sauvignon',
       vintage: '2018',
       price: 'USD 350',
-      rating: 4.5,
+      rating: 5,
       appearance: 'Ruby',
       aromas: ['Blackcurrant', 'Oak'],
       sweetness: 'Dry',
