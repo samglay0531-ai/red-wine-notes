@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { HierarchyOption, SelectOption } from '../types';
-import { ChevronRight, ChevronLeft, ChevronDown, X, Search } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ChevronDown, X, Search, PenLine } from 'lucide-react';
 
 interface CascadingSelectProps {
   hierarchy: HierarchyOption[];
@@ -98,6 +98,16 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
     setSelectedCategory(null);
   };
 
+  const handleCustomInput = () => {
+    setInputValue('');
+    onChange('');
+    setIsOpen(false);
+    setCurrentLevel(0);
+    setSelectedCategory(null);
+    // 延遲 focus 讓 dropdown 先關閉
+    setTimeout(() => inputRef.current?.focus(), 50);
+  };
+
   const clearInput = (e: React.MouseEvent) => {
     e.stopPropagation();
     setInputValue('');
@@ -150,14 +160,22 @@ const CascadingSelect: React.FC<CascadingSelectProps> = ({
             返回 {selectedCategory.label.split('(')[0]}
           </li>
           {selectedCategory.children.map(child => (
-            <li 
+            <li
               key={child.value}
-              className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] last:border-none pl-6"
+              className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#1A1A1A] border-b border-[#F5EDE4] pl-6"
               onMouseDown={(e) => { e.preventDefault(); handleOptionSelect(child); }}
             >
               {child.label}
             </li>
           ))}
+          <li
+            key="__custom__"
+            className="px-3 py-3 bg-white hover:bg-[#F5EDE4] cursor-pointer text-[#6B6B6B] pl-6 flex items-center gap-2 border-t border-[#E8DDD3]"
+            onMouseDown={(e) => { e.preventDefault(); handleCustomInput(); }}
+          >
+            <PenLine size={14} />
+            其他（自行輸入）
+          </li>
         </>
       );
     }
